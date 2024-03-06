@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <title>Взаємодія з елементами</title>
+        <style>
+            h1 {
+                color: blueviolet;
+                font-size: 4em;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="toggleButton">Видалити/Відновити заголовок</button>
+        <h1 id="header">Hello World!</h1>
+        <script>
+            document.getElementById("toggleButton").onclick = toggleHeader;
+
+            function toggleHeader() {
+                var header = document.getElementById("header");
+
+                if (header) {
+                    header.parentNode.removeChild(header);
+                } else {
+                    var newHeader = document.createElement('h1');
+                    newHeader.id = "header";
+                    document.body.appendChild(newHeader);
+                    newHeader.appendChild(document.createTextNode("Hello World!"));
+                }
+            };
+        </script>
+    </body>
+</html>
